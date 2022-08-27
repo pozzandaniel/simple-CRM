@@ -1,7 +1,35 @@
 <mat-card class="user-detail-header">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+    </mat-menu>
+
     <img src="./assets/images/profile.jpg" alt="">
     <div class="user-details">
-        <h1>Max Mustermann</h1>
-        <br>email@email.de
+        <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+        <br>{{ user.email }}
     </div>
 </mat-card>
+
+<mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editMenu()">Edit</button>
+    </mat-menu>
+
+    <mat-card-title>Address</mat-card-title>
+   
+    <mat-card-content>
+        {{ user.street }} <br>
+        {{ user.zipCode }} {{ user.city }}
+    </mat-card-content>
+
+</mat-card>
+
+<button mat-fab color="primary" class="delete-user-icon" (click)="openDialogDeletUser()">
+    <mat-icon>delete</mat-icon>
+</button>

@@ -23,6 +23,11 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
+
 
 
 
@@ -32,7 +37,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    DialogEditAddressComponent,
+    DialogEditUserComponent,
+    DialogDeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
 
   ],
   providers: [],
