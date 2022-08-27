@@ -27,6 +27,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
+import { DialogEditCommentComponent } from './dialog-edit-comment/dialog-edit-comment.component';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { DialogShowCommentComponent } from './dialog-show-comment/dialog-show-comment.component';
+
 
 
 
@@ -40,7 +44,9 @@ import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-us
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserComponent,
-    DialogDeleteUserComponent
+    DialogDeleteUserComponent,
+    DialogEditCommentComponent,
+    DialogShowCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,8 @@ import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-us
     AngularFireAnalyticsModule,
     MatProgressBarModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    TextFieldModule
 
   ],
   providers: [],

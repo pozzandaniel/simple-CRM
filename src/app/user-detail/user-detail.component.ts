@@ -5,7 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditCommentComponent } from '../dialog-edit-comment/dialog-edit-comment.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogShowCommentComponent } from '../dialog-show-comment/dialog-show-comment.component';
 
 
 
@@ -50,6 +52,18 @@ export class UserDetailComponent implements OnInit {
 
   editUserDetail() {
     let dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  editComment() {
+    let dialog = this.dialog.open(DialogEditCommentComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  showComment() {
+    let dialog = this.dialog.open(DialogShowCommentComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
   }

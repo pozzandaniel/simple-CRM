@@ -13,3 +13,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .full-width {
     width: 100%;
 }
+
+.width-400 {
+    width: 400px;
+}
+
+.bg-tomato {
+    background-color: tomato;
+    color: white;
+   
+}
+
+.dialog-container {
+    position: relative;
+
+    mat-progress-bar {
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        right: -24px;
+        width: calc(100% + 48px);
+    }
+}
