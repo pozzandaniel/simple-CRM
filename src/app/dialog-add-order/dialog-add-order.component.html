@@ -1,0 +1,48 @@
+<div class="dialog-container">
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    
+    <h1 mat-dialog-title>Add Order</h1>
+    <div mat-dialog-content>
+        <div>
+            
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Title</mat-label>
+                <input [(ngModel)]="order.title"  [disabled]="loading" matInput placeholder="Title">
+                <!-- <mat-hint>Please enter a date</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" class="width-400">
+                <mat-label>Description</mat-label>
+                <textarea [(ngModel)]="order.description" matInput 
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="10"
+                cdkAutosizeMaxRows="10"
+               
+                ></textarea>
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Due Date</mat-label>
+                <input [min]="startDate" [(ngModel)]="order.dueDate" [disabled]="loading"  matInput [matDatepicker]="picker" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                <!-- <mat-hint>Please enter a date</mat-hint> -->
+                
+            </mat-form-field>
+        </div>
+    
+     
+    
+      
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="loading" (click)="dialogRef.close()" mat-button >Cancel</button>
+      <button [disabled]="loading" (click)="saveOrder()" mat-button  cdkFocusInitial>Save</button>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
+import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
 import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditCommentComponent } from '../dialog-edit-comment/dialog-edit-comment.component';
@@ -64,6 +65,12 @@ export class UserDetailComponent implements OnInit {
 
   showComment() {
     let dialog = this.dialog.open(DialogShowCommentComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  addOrder() {
+    let dialog = this.dialog.open(DialogAddOrderComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
   }

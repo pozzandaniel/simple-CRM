@@ -19,7 +19,6 @@ export class DialogEditCommentComponent implements OnInit {
   
     
   ngOnInit(): void {
-    this.autosize.resizeToFitContent(true)
   }
 
   saveComment() {

@@ -15,7 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -30,6 +30,8 @@ import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-us
 import { DialogEditCommentComponent } from './dialog-edit-comment/dialog-edit-comment.component';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { DialogShowCommentComponent } from './dialog-show-comment/dialog-show-comment.component';
+import { OrdersComponent } from './orders/orders.component';
+import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
 
 
 
@@ -46,7 +48,9 @@ import { DialogShowCommentComponent } from './dialog-show-comment/dialog-show-co
     DialogEditUserComponent,
     DialogDeleteUserComponent,
     DialogEditCommentComponent,
-    DialogShowCommentComponent
+    DialogShowCommentComponent,
+    OrdersComponent,
+    DialogAddOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ import { DialogShowCommentComponent } from './dialog-show-comment/dialog-show-co
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAnalyticsModule,

@@ -1,0 +1,18 @@
+<mat-card>
+    <table class="order-table">
+        <tr>
+            <th>Order</th>
+            <th>User</th>
+            <th>Due Date</th>
+        </tr>
+        <ng-container *ngFor="let user of allUsers">
+            
+            <tr *ngFor="let order of user.orders">
+                <td>{{ order.title }}</td>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ toDate(order.dueDate) }}</td>
+            </tr>
+        </ng-container>
+      
+    </table>
+</mat-card>

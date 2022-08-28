@@ -45,7 +45,13 @@
 
 </mat-card>
 
-<mat-card class="mt-32">
+<mat-card class="mt-32 bg-blue">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="order">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #order="matMenu">
+        <button mat-menu-item (click)="addOrder()">Add order</button>
+    </mat-menu>
     <mat-card-title>Orders</mat-card-title>
     <mat-card-content>
     
