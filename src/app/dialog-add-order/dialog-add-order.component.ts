@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Order } from 'src/models/order.class';
 import { User } from 'src/models/user.class';
 
@@ -17,24 +18,26 @@ export class DialogAddOrderComponent implements OnInit {
   startDate = new Date();
   order: Order;
 
+
  
 
   constructor(public dialogRef: MatDialogRef<DialogAddOrderComponent>,
-  private firestore: AngularFirestore) { }
+  private firestore: AngularFirestore,
+  public router: Router) { }
 
   ngOnInit(): void {
-    this.order = new Order()
-    
+    this.order = new Order() 
   }
 
   saveOrder() {
     this.loading = true;
     let dueData = new Date(this.order.dueDate).getTime();
-    let today = new Date(this.order.creationDate).getTime();
+    let today = new Date().getTime();
     this.order.creationDate = today;
     this.order.dueDate = dueData;
+    this.order.id = this.generateID(20);
     this.user.orders.push(this.order.toJSON())
-    console.log('user to JSON: ',this.user.toJSON());
+    console.log('this.order.creationdate is: ', today);
     this.firestore
       .collection('users')
       .doc(this.userId)
@@ -42,9 +45,23 @@ export class DialogAddOrderComponent implements OnInit {
       .then(() => {
         this.loading = false;
         this.dialogRef.close();
+        this.router.navigate(['orders']);
+
       })
-
-
   }
+
+  generateID(length) {
+      let result = '';
+      let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * 
+        charactersLength));
+     }
+     return result;
+  }
+  
+
+ 
 
 }

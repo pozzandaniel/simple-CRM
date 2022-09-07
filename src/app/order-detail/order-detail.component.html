@@ -1,0 +1,32 @@
+<mat-card class="bg-blue title-order">
+    <h2 mat-dialog-title>Order Title: {{ order.title }}</h2>
+    <button mat-icon-button >
+        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+    </button>
+    <!-- <button mat-button >Menu</button> -->
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDeleteOrderDialog()">Delete Order</button>
+        <button mat-menu-item>Edit Order</button>
+    </mat-menu>
+
+</mat-card>
+<div class="order-container">
+    <mat-card class="mt-32">
+        <mat-dialog-content class="mat-typography">
+            <h3><b>Name of the client:</b>  {{ user.firstName }} {{ user.lastName }}</h3>
+            <h3><b>Email:</b> {{ user.email }}</h3>
+            <h3><b>Address:</b> {{ user.street }}, {{ user.zipCode }} {{ user.city }}</h3>
+        
+        </mat-dialog-content>
+    </mat-card>
+
+    <mat-card class="mt-32">
+        <mat-dialog-content class="mat-typography">
+            <h3><b>Due Date:</b>  {{ toDate(order.dueDate) }};<b> Creation Date:</b>  {{ toDate(order.creationDate) }}</h3>
+            <h3><b>Description:</b> {{ order.description}}</h3>
+   
+        
+        </mat-dialog-content>
+    </mat-card>
+</div>
+

@@ -32,6 +32,8 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { DialogShowCommentComponent } from './dialog-show-comment/dialog-show-comment.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { DialogDeleteOrderComponent } from './dialog-delete-order/dialog-delete-order.component';
 
 
 
@@ -50,7 +52,9 @@ import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.com
     DialogEditCommentComponent,
     DialogShowCommentComponent,
     OrdersComponent,
-    DialogAddOrderComponent
+    DialogAddOrderComponent,
+    OrderDetailComponent,
+    DialogDeleteOrderComponent
   ],
   imports: [
     BrowserModule,

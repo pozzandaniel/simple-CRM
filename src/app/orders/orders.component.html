@@ -7,7 +7,7 @@
         </tr>
         <ng-container *ngFor="let user of allUsers">
             
-            <tr *ngFor="let order of user.orders">
+            <tr *ngFor="let order of user.orders" (click)="openDialogOrder(user.customIdName, user, order)">
                 <td>{{ order.title }}</td>
                 <td>{{ user.firstName }} {{ user.lastName }}</td>
                 <td>{{ toDate(order.dueDate) }}</td>
