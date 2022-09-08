@@ -14,7 +14,8 @@ export class OrdersComponent implements OnInit {
   allUsers;
 
   constructor(private firebase: AngularFirestore,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    ) { }
 
   ngOnInit(): void {
     this.firebase

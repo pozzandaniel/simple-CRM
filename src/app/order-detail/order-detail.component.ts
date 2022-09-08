@@ -32,6 +32,7 @@ export class OrderDetailComponent implements OnInit {
     let dialog = this.dialog.open(DialogDeleteOrderComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.order = this.order;
   }
 
 }
