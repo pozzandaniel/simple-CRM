@@ -13,19 +13,22 @@ export class DialogDeleteOrderComponent implements OnInit {
   user:any;
   userId;
   order;
+  loading = false;
 
   constructor(public dialog: MatDialog,
      private firestore: AngularFirestore,
-     public router: Router) { }
+     public router: Router,
+     public dialogRef: MatDialogRef<DialogDeleteOrderComponent>) { }
      
   ngOnInit(): void {
   }
 
   onNoClick(): void {
-    this.dialog.closeAll();
+    this.dialogRef.close();
   }
 
   deleteOrder() {
+    this.loading = true;
     let index = this.findIndexOrder();
     this.user.orders.splice(index, 1);
     this.firestore
@@ -34,13 +37,15 @@ export class DialogDeleteOrderComponent implements OnInit {
       .update(this.user.toJSON())
       .then(()=>{
         this.dialog.closeAll();
+        this.loading = false;
 
       })
 
   }
 
   findIndexOrder() {
-    return this.user.orders.indexOf(this.order);
+    return this.user.orders.map(object => object.id).indexOf(this.order.id);
+    
   }
 
 }
