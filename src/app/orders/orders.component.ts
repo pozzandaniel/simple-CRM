@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Order } from 'src/models/order.class';
 import { User } from 'src/models/user.class';
+import { DialogAddOrderUserComponent } from '../dialog-add-order-user/dialog-add-order-user.component';
 import { OrderDetailComponent } from '../order-detail/order-detail.component';
 
 @Component({
@@ -23,6 +24,7 @@ export class OrdersComponent implements OnInit {
       .valueChanges({idField: 'customIdName'})
       .subscribe((users:any) => {
         this.allUsers = users;
+        
       })
   }
 
@@ -41,6 +43,11 @@ export class OrdersComponent implements OnInit {
     dialog.componentInstance.userId = userId;
     dialog.componentInstance.order = new Order(order);
 
+  }
+
+  addNewOrder() {
+    let dialog = this.dialog.open(DialogAddOrderUserComponent);
+    dialog.componentInstance.allUsers = this.allUsers;
   }
 
 }

@@ -34,6 +34,10 @@ import { OrdersComponent } from './orders/orders.component';
 import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { DialogDeleteOrderComponent } from './dialog-delete-order/dialog-delete-order.component';
+import { DialogAddOrderUserComponent } from './dialog-add-order-user/dialog-add-order-user.component';
+import { MatSelectModule } from '@angular/material/select';
+import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.component';
+
 
 
 
@@ -54,7 +58,10 @@ import { DialogDeleteOrderComponent } from './dialog-delete-order/dialog-delete-
     OrdersComponent,
     DialogAddOrderComponent,
     OrderDetailComponent,
-    DialogDeleteOrderComponent
+    DialogDeleteOrderComponent,
+    DialogAddOrderUserComponent,
+    DialogEditOrderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -77,7 +84,8 @@ import { DialogDeleteOrderComponent } from './dialog-delete-order/dialog-delete-
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    TextFieldModule
+    TextFieldModule,
+    MatSelectModule
 
   ],
   providers: [],

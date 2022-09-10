@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Order } from 'src/models/order.class';
 import { User } from 'src/models/user.class';
 import { DialogDeleteOrderComponent } from '../dialog-delete-order/dialog-delete-order.component';
+import { DialogEditOrderComponent } from '../dialog-edit-order/dialog-edit-order.component';
 
 @Component({
   selector: 'app-order-detail',
@@ -33,6 +35,18 @@ export class OrderDetailComponent implements OnInit {
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
     dialog.componentInstance.order = this.order;
+  }
+
+  openEditOrderDialog() {
+    let dialog = this.dialog.open(DialogEditOrderComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+    dialog.componentInstance.order = new Order(this.order)
+    dialog.componentInstance.orderId = this.order.id;
+
+
+
+
   }
 
 }

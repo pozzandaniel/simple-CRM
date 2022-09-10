@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
       .subscribe((changes:any) => {
         console.log('From database updated: ', changes);
         this.allUsers = changes;
+        console.log('id is: ', this.allUsers[0].customIdName)
       })
   }
 

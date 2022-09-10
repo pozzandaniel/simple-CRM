@@ -16,3 +16,8 @@
       
     </table>
 </mat-card>
+
+  
+<button [disabled]="allUsers ? allUsers.length < 1 : true" (click)="addNewOrder()" #tooltip="matTooltip" matTooltip="Add an order" class="add-order-btn" mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+</button>
