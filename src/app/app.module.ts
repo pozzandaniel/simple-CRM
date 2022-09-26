@@ -37,6 +37,12 @@ import { DialogDeleteOrderComponent } from './dialog-delete-order/dialog-delete-
 import { DialogAddOrderUserComponent } from './dialog-add-order-user/dialog-add-order-user.component';
 import { MatSelectModule } from '@angular/material/select';
 import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.component';
+import { LoginComponent } from './login/login.component';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+
 
 
 
@@ -61,6 +67,7 @@ import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.
     DialogDeleteOrderComponent,
     DialogAddOrderUserComponent,
     DialogEditOrderComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -85,10 +92,15 @@ import { DialogEditOrderComponent } from './dialog-edit-order/dialog-edit-order.
     MatCardModule,
     MatMenuModule,
     TextFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    provideAuth(() => getAuth()),
+    HotToastModule.forRoot(),
+    provideFirebaseApp( () => initializeApp(environment.firebase)),
 
   ],
-  providers: [],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
