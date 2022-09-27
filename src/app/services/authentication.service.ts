@@ -25,5 +25,21 @@ export class AuthenticationService {
   logout() {
     return from(this.auth.signOut());
   }
+
+  signUp(email:string, password:string) {
+    return from(createUserWithEmailAndPassword(this.auth, email, password))
+    
+  }
+
+  updateProfileData(profileData: Partial<UserInfo>): Observable<any>{
+    const user = this.auth.currentUser;
+    return of(user).pipe(
+      concatMap((user) => {
+        if(!user) throw new Error('Not Authenticated');
+        return updateProfile(user, profileData)
+      })
+    )
+
+  }
   
 }

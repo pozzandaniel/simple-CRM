@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccountService } from './services/account.service';
+import { AuthenticationService } from './services/authentication.service';
 
 
 @Component({
@@ -7,5 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'simple-crm';
+  user$ = this.accountService.currentUserProfile$;
+
+  constructor(
+    public authService: AuthenticationService,
+    private router: Router,
+    private accountService: AccountService
+  ){}
+
+  logout() {
+    this.authService.logout().subscribe(()=>{
+      this.router.navigate(['']);
+    })
+  }
 }

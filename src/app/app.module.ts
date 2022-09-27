@@ -18,7 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
@@ -42,6 +42,12 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { ProfileComponent } from './profile/profile.component';
+
+
 
 
 
@@ -68,6 +74,8 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
     DialogAddOrderUserComponent,
     DialogEditOrderComponent,
     LoginComponent,
+    SignUpComponent,
+    ProfileComponent,
     
   ],
   imports: [
@@ -96,11 +104,16 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
     provideAuth(() => getAuth()),
     HotToastModule.forRoot(),
     provideFirebaseApp( () => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
 
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
